@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Badge from "./components/Badge";
 import "bootstrap/dist/css/bootstrap.css";
-import "./components/styles/global.css";
+import "./components/styles/Global.css";
+import BadgeNew from "./pages/BadgeNew";
 
 // const element = document.createElement('h1'); // React
 // element.innerText = 'Hello, Platzi Badges!';
@@ -22,17 +22,8 @@ const element = React.createElement(
 );
 // const element = React.createElement('__ElementType__', { __attributes/props__ }, '__Children__', '__Children__')
 const container = document.getElementById("root");
-ReactDOM.render(
-  <Badge
-    // Props
-    firstName="Carlos"
-    lastName="Jaramillo"
-    jobTitle="Senior FrontEnd Engineer"
-    twitter="cejaramillof"
-    avatar="https://www.gravatar.com/avatar?d=identicon"
-  />,
-  container
-);
+
+ReactDOM.render(<BadgeNew />, container);
 // ReactDOM.render(element, container);
 // Component is a class
 // Element < > is a Object

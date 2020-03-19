@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+
 // import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
 import "./components/styles/Global.css";
+import App from "./components/App";
 
 // const element = document.createElement('h1'); // React
 // element.innerText = 'Hello, Platzi Badges!';

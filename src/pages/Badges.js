@@ -5,18 +5,20 @@ import confLogo from "../images/badge-header.svg";
 import Navbar from "../components/Navbar";
 import BadgesList from "../components/BadgesList";
 import { Link } from "react-router-dom";
+import api from "../api";
 
 class Badges extends React.Component {
   constructor(props) {
     console.log("1. constructor");
     super(props);
 
-    this.state = {
-      data: []
-    };
+    this.state = { loading: true, error: null, data: undefined };
   }
   componentDidMount() {
     console.log("3. componentDidMount");
+    this.fetchData();
+
+    /*
     this.timeoutId = setTimeout(() => {
       this.setState({
         data: [
@@ -53,7 +55,18 @@ class Badges extends React.Component {
         ]
       });
     }, 3000);
+    */
   }
+
+  fetchData = async () => {
+    this.setState({ loading: true, error: null });
+    try {
+      const data = await api.badges.list();
+      this.setState({ loading: false, data: data });
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+    }
+  };
 
   componentDidUpdate(prevProps, prevState) {
     console.log("5. componentDidUpdate");
@@ -63,10 +76,16 @@ class Badges extends React.Component {
 
   componentWillUnmount() {
     console.log("6. componentWillUnmount");
-    clearTimeout(timeoutId);
+    clearTimeout(this.timeoutId);
   }
 
   render() {
+    if (this.state.loading === true) {
+      return "Loading...";
+    }
+    if (this.state.error) {
+      return `Error: ${this.state.error.message}`;
+    }
     console.log("2/4. Render");
     return (
       <React.Fragment>

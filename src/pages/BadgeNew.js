@@ -4,7 +4,7 @@ import "./styles/BadgeNew.css";
 import header from "../images/badge-header.svg";
 import Navbar from "../components/Navbar";
 import Badge from "../components/Badge";
-import BadgeForm from "../components/badgeForm";
+import BadgeForm from "../components/BadgeForm";
 
 class BadgeNew extends React.Component {
   state = {
@@ -41,11 +41,12 @@ class BadgeNew extends React.Component {
             <div className="col-6">
               <Badge
                 // Props
-                firstName={this.state.form.firstName}
-                lastName={this.state.form.lastName}
-                jobTitle={this.state.form.jobTitle}
-                twitter={this.state.form.twitter}
-                email={this.state.form.email}
+                // firstName={this.state.form.firstName}
+                // lastName={this.state.form.lastName}
+                // jobTitle={this.state.form.jobTitle}
+                // twitter={this.state.form.twitter}
+                // email={this.state.form.email}
+                {...this.state.form}
                 avatarUrl="https://www.gravatar.com/avatar?d=identicon"
               />
             </div>

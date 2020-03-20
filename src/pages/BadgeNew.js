@@ -6,7 +6,6 @@ import Badge from "../components/Badge";
 import BadgeForm from "../components/BadgeForm";
 import api from "../api";
 import PageLoading from "../components/PageLoading";
-import PageError from "../components/PageError";
 class BadgeNew extends React.Component {
   state = {
     loading: false,

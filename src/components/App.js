@@ -7,7 +7,7 @@ import Layout from "./Layout";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import BadgeEdit from "../pages/BadgeEdit";
-import BadgeDetails from "../pages/BadgeDetails";
+import BadgeDetailsContainer from "../pages/BadgeDetailsContainer";
 
 // Lifecycle
 // constructor (Initialice state or values)
@@ -29,7 +29,7 @@ function App() {
           <Route exact path="/badges" component={Badges} />
           <Route exact path="/badges/new" component={BadgeNew} />
           <Route exact path="/badges/:badgeId/edit" component={BadgeEdit} />
-          <Route exact path="/badges/:badgeId" component={BadgeDetails} />
+          <Route exact path="/badges/:badgeId" component={BadgeDetailsContainer} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

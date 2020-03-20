@@ -12,12 +12,27 @@ import MiniLoader from "../components/MiniLoader";
 class Badges extends React.Component {
   constructor(props) {
     console.log("1. constructor");
+    // Initialize controllers, and events from state
     super(props);
 
     this.state = { loading: true, error: null, data: undefined };
   }
+
+  static getDerivedStateFromProps() {
+    console.log("1.1 / 3.1  getDerivedStateFromProps");
+    // 1.1 before show in dom
+    // used to update internal state
+
+    // 3.1 here start the updates
+    // the first in update, the same form as on 1.1 (mount)
+  }
+
   componentDidMount() {
     console.log("3. componentDidMount");
+    // when component is mounted in DOM
+    // be created with the logic and children components
+    // used to work with events
+
     this.fetchData();
     this.intervalId = setInterval(this.fetchData, 5000);
 
@@ -71,16 +86,38 @@ class Badges extends React.Component {
     }
   };
 
+  shouldComponentUpdate() {
+    console.log("3.2. shouldComponentUpdate");
+    // controle update time,
+    // return values to update or no the component
+    // most used for optimization
+  }
+
   componentDidUpdate(prevProps, prevState) {
     console.log("5. componentDidUpdate");
+    // Listening changes in state or props
+    // called before da component is updated
     console.log({ prevProps: prevProps, prevState: prevState });
     console.log({ props: this.props, state: this.state });
   }
 
   componentWillUnmount() {
     console.log("6. componentWillUnmount");
+    // called before is unmounte or deleted
     clearInterval(this.intervalId);
     // clearTimeout(this.timeoutId);
+  }
+
+  getDerivedStateFromError() {
+    console.log("7. getDerivedStateFromError");
+    // here start the catch errors. the first method called
+    // receives the error for params
+    // any value returned is used to update the component state
+  }
+
+  componentDidCatch() {
+    // receives the error and the error info for params
+    console.log("8.componentDidCatch");
   }
 
   render() {

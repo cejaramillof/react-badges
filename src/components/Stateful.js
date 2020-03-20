@@ -5,7 +5,7 @@ class Stateful extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hello: "Hola mundo"
+      hello: "Hola mundo Stateful"
     };
   }
   render() {

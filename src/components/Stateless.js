@@ -1,7 +1,7 @@
 import React from "react";
 
 const Stateless = () => {
-  return <h1>{this.state.hello}</h1>;
+  return <h1>Hello world Stateless</h1>;
 };
 
 export default Stateless;

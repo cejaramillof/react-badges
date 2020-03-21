@@ -20,6 +20,7 @@ class Badges extends React.Component {
 
   static getDerivedStateFromProps() {
     console.log("1.1 / 3.1  getDerivedStateFromProps");
+    return null;
     // 1.1 before show in dom
     // used to update internal state
 
@@ -88,6 +89,7 @@ class Badges extends React.Component {
 
   shouldComponentUpdate() {
     console.log("3.2. shouldComponentUpdate");
+    return true;
     // controle update time,
     // return values to update or no the component
     // most used for optimization
@@ -108,7 +110,7 @@ class Badges extends React.Component {
     // clearTimeout(this.timeoutId);
   }
 
-  getDerivedStateFromError() {
+  static getDerivedStateFromError() {
     console.log("7. getDerivedStateFromError");
     // here start the catch errors. the first method called
     // receives the error for params

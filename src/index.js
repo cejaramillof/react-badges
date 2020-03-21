@@ -8,7 +8,7 @@ import "./components/styles/Global.css";
 import App from "./components/App";
 
 // const element = document.createElement('h1'); // React
-// element.innerText = 'Hello, Platzi Badges!';
+// element.innerText = 'Hello, React Badges!';
 
 // const container = document.getElementById('app');
 // container.appendChild(element); // ReactDOM

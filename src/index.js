@@ -25,7 +25,16 @@ const element = React.createElement(
 // const element = React.createElement('__ElementType__', { __attributes/props__ }, '__Children__', '__Children__')
 const container = document.getElementById("root");
 
-ReactDOM.render(<App />, container);
+function render() {
+  ReactDOM.render(<App />, container);
+}
+
+render()
+
+if (module.hot) {
+  module.hot.accept('./components/App', () => render())
+}
+
 // ReactDOM.render(element, container);
 // Component is a class
 // Element < > is a Object

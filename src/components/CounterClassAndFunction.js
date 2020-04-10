@@ -1,6 +1,6 @@
-import React, { Component, useState } from "react"
+import React, { Component, useState, useCallback } from "react"
 
-export default class CounterClass extends Component {
+export class CounterClass extends Component {
     state = { counter: 0 }
     render() {
         const { counter } = this.state
@@ -14,13 +14,25 @@ export default class CounterClass extends Component {
     }
 }
 
-export default function CounterFunction () {
+const functions = new Set();
+export function CounterFunction () {
     const [counter, setCount] = useState(0)
+    const [anotherCounter, setAnotherCount] = useState(0)
+
+    const handleIncrementClick = useCallback(() => setCount(counter + 1), [counter])
+
+    // when use useCallback only create function again when change arguments
+    const doSomething = useCallback(() => alert(10), [anotherCounter])
+
+    functions.add(doSomething)
+    functions.add(handleIncrementClick) // in each re-render will create again all functions
+
+    console.log(functions)
     return (
         <div>
             <span>{counter}</span>
-            <button onClick={() => setCount(counter + 1)}>+</button>
-            <button onClick={() => this.setState(counter - 1)}>-</button>
+            <button onClick={handleIncrementClick}>+</button>
+            <button onClick={() => setCount(counter - 1)}>-</button>
         </div>
     )
 }

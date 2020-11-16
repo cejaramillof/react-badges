@@ -7,6 +7,14 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./components/styles/Global.css";
 import App from "./components/App";
 
+
+// ReactDOM.render(element, container);
+// Component is a class
+// Element < > is a Object
+
+// Functional component (stateless)
+// Class component (stateful)
+
 // const element = document.createElement('h1'); // React
 // element.innerText = 'Hello, React Badges!';
 
@@ -15,6 +23,7 @@ import App from "./components/App";
 // ReactDOM.render(__qué__, __dónde__);
 // const name = "Google";
 // const element = <h1>Hello, {name || expressions || whatever true value } Badges!</h1>; // JSX
+
 /*
 const element = React.createElement(
   "a",
@@ -34,13 +43,6 @@ render()
 if (module.hot) {
   module.hot.accept('./components/App', () => render())
 }
-
-// ReactDOM.render(element, container);
-// Component is a class
-// Element < > is a Object
-
-// Functional component (stateless)
-// Class component (stateful)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
